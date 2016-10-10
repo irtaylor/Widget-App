@@ -13,9 +13,9 @@ var mongoose = require('mongoose');
 var database = require('./config/database');
 
 // REQUIRE  SERVER SIDE ROUTER MODULES
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var widgetRouter = require('./routes/widgetRouter');
+var routes = require('./server_routes/index');
+var users = require('./server_routes/users');
+var widgetRouter = require('./server_routes/widgetRouter');
 
 // CREATE A DATABASE CONNECTION
 mongoose.connect(database);
