@@ -1,0 +1,22 @@
+{
+  "name": "Widget-App",
+  "description": "An App For Ordering Widgets",
+  "main": "index.html",
+  "authors": [
+    "irtaylor <taylori@onid.oregonstate.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/irtaylor",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3"
+  }
+}

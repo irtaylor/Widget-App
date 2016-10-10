@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="widgetApp">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Widget App w/ MEAN Stack</title>
+
+    <!-- SCROLLS -->
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- A SMALL CUSTOM STYLE-->
+    <style>
+        html 					{ overflow-y:scroll; }
+        body 					{ padding-top:50px; }
+    </style>
+
+    <!-- USE ANGULAR JS AS CLIENT SIDE FRAMEWORK  -->
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./javascripts/controllers.js"></script>
+
+
+</head>
+
+
+<!-- SET THE CONTROLLER -->
+<body ng-controller="WidgetController">
+    <div class="container">
+
+        <!-- HEADER VIEW -->
+        <div class="jumbotron text-center">
+            <h2>Widget App: An App For Ordering Widgets</h2>
+            <h3>by Ian Taylor</h3>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="orderWidget()">Place Order</button>
+
+        <!-- FOOTER VIEW -->
+
+        <div class="text-center text-muted">
+            <p style="padding-top:50px">(c) 2016 Ian Taylor </p>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+# directories
+node_modules/
+bower_components/
+dist/
+mongodb/
+
+# file types
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+# file names
+test.json
