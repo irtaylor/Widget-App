@@ -3,6 +3,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var shortid = require('shortid');
 
 var Widget = require('../models/widget');
 
@@ -26,15 +27,22 @@ widgetRouter.route('/')
         model : req.body.model,
         color : req.body.color,
         receipt_date: req.body.receipt_date,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        order_id: shortid.generate()
     },
     function(err, widget) {
         if (err){ res.send(err); }
         // get and return all the widgets after you create another
-        Widget.find(function(err, widget) {
+        /*Widget.find(function(err, widget) {
             if (err){res.send(err);}
             res.json(widget);
-        });
+        });*/
+
+        Widget.findOne(function(err, widget){
+            if (err){res.send(err);}
+            res.json(widget);
+        })
+        .sort({$natural:-1});
     });
 });
 

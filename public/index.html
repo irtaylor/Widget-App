@@ -34,7 +34,70 @@
             <h3>by Ian Taylor</h3>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-lg" ng-click="orderWidget()">Place Order</button>
+        <!-- FORM TO ORDER WIDGETs -->
+        <div id="widget-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+
+                <form name="widgetForm" ng-submit="orderWidget(widgetForm.$valid)" novalidate>
+
+                    <!-- WIDGET MODEL SELECT -->
+                    <div class="form-group row">
+                        <label for="widgetModel" class="col-xs-3 col-form-label">Widget Model</label>
+
+                        <div class="col-xs-9">
+                            <select class="form-control" name="widgetModels" id="widgetModels" ng-model="finalWidget.model" required="Widget">
+                                <option value="" disabled selected>Select A Model</option>
+                                <option ng-repeat="option in data.widgetModels" value="{{option.model}}">{{option.model}}</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <!-- WIDGET COLOR SELECT -->
+                    <div class="form-group row">
+                        <label for="widgetColors" class="col-xs-3 col-form-label">Widget Color</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" name="widgetColors" id="widgetColors" ng-model="finalWidget.color" required>
+                                <option value="" disabled selected>Select A Color</option>
+                                <option ng-repeat="option in data.widgetColors" value="{{option.color}}">{{option.color}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- WIDGET DATE -->
+                    <div class="form-group row">
+                        <label for="widgetDate" class="col-xs-3 col-form-label">Desired Receipt Date</label>
+                        <div class="col-xs-9">
+                            <input class="form-control" type="date" name="widgetDate" id="widgetDate" ng-model="finalWidget.receipt_date"
+                            placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyy-MM-dd'}}" required/>
+                            <p ng-show="widgetForm.widgetDate.$error.min" class="help-block">Please select a date at least one week from today.</p>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- WIDGET QUANTITY -->
+                    <div class="form-group row">
+                        <label for="widgetQuantity" class="col-xs-3 col-form-label">Quantity Desired</label>
+                        <div class="col-xs-9">
+                            <input class="form-control" type="number" name="widgetQuantity" id="widgetQuantity" ng-model="finalWidget.quantity"
+                            placeholder="Enter A Number" min="1" ng-pattern="/^\d+$/" required/>
+                            <p ng-show="widgetForm.widgetQuantity.$error.min" class="help-block">You gotta order at least one.</p>
+                            <p ng-show="widgetForm.widgetQuantity.$error.pattern" class="help-block">No partial widgets, please.</p>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- orderWidget() WILL ORDER A WIDGET USING THE WidgetController (see: ./javascripts/controllers.js) -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-disabled="widgetForm.$invalid">Place Order</button>
+                </form>
+
+            </div>
+        </div>
 
         <!-- FOOTER VIEW -->
 

@@ -20,6 +20,10 @@ var widgetSchema = new Schema({
     quantity:{
         type: Number,
         required: true
+    },
+    order_id:{
+        type: String,
+        required: true
     }
 });
 
