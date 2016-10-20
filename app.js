@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 var database = require('./config/database');
 
 // REQUIRE  SERVER SIDE ROUTER MODULES
-var index = require('./server_routes/index');
+var routes = require('./server_routes/index');
 var users = require('./server_routes/users');
 var widgetRouter = require('./server_routes/widgetRouter');
 
@@ -41,13 +41,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
 // DEFINE THE URI NAMES TO CORRESPOND TO WHICH ROUTER
-app.use('/', index);
+app.use('/', routes);
 app.use('/users', users);
 app.use('/widgets', widgetRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+    console.log("404");
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -76,6 +78,11 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+app.use(function(req, res, next) {
+  res.status(404).send('Sorry cant find that!');
+});
+
 
 
 module.exports = app;

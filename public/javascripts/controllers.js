@@ -33,7 +33,7 @@ app.controller('WidgetController', function($scope, $http) {
 			.success(function(data) {
                 $scope.finalWidget = data;
 				console.log(data);
-                
+
 				$scope.finalWidget = {}; // clear the form so our user is ready to enter another
 
 			})

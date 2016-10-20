@@ -13,6 +13,7 @@ widgetRouter.use(bodyParser.json());
 // DEFINE THE RESTFUL API
 widgetRouter.route('/')
 // GET: GET ALL THE WIDGET ORDERS
+
 .get(function(req, res, next) {
     Widget.find({}, function(err, widget) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute

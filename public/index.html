@@ -18,7 +18,11 @@
 
     <!-- USE ANGULAR JS AS CLIENT SIDE FRAMEWORK  -->
     <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
     <script src="./javascripts/controllers.js"></script>
+    <script src="./javascripts/client_routes.js"></script>
+
 
 
 </head>
@@ -33,6 +37,10 @@
             <h2>Widget App: An App For Ordering Widgets</h2>
             <h3>by Ian Taylor</h3>
         </div>
+
+
+        <!-- INJECT CUSTOM VIEW HERE -->
+	    <div ng-view></div>
 
         <!-- FORM TO ORDER WIDGETs -->
         <div id="widget-form" class="row">
@@ -72,7 +80,7 @@
                         <div class="col-xs-9">
                             <input class="form-control" type="date" name="widgetDate" id="widgetDate" ng-model="finalWidget.receipt_date"
                             placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyy-MM-dd'}}" required/>
-                            <p ng-show="widgetForm.widgetDate.$error.min" class="help-block">Please select a date at least one week from today.</p>
+                            <p ng-show="widgetForm.widgetDate.$error.min" class="help-block" style="color:red">Please select a date at least one week from today.</p>
                         </div>
                     </div>
                     <br>
@@ -81,16 +89,11 @@
                     <div class="form-group row">
                         <label for="widgetQuantity" class="col-xs-3 col-form-label">Quantity Desired</label>
                         <div class="col-xs-9">
-                            <input class="form-control" type="number" name="widgetQuantity" id="widgetQuantity" ng-model="finalWidget.quantity"
-                            placeholder="Enter A Number" min="1" ng-pattern="/^\d+$/" required/>
-                            <p ng-show="widgetForm.widgetQuantity.$error.min" class="help-block">You gotta order at least one.</p>
-                            <p ng-show="widgetForm.widgetQuantity.$error.pattern" class="help-block">No partial widgets, please.</p>
+                            <input class="form-control" name="widgetQuantity" id="widgetQuantity" ng-model="finalWidget.quantity"
+                            placeholder="Enter A Number" min="1" ng-pattern="/^0*[1-9]+\d*$/" required/> <!-- regex: ignore leading zeros. E.g. "000010" will be interpreted as "10"-->
+                            <p ng-show="widgetForm.widgetQuantity.$error.pattern" class="help-block" style="color:red">Please order at least one widget. No partial widgets, please -- whole numbers only.</p>
                         </div>
                     </div>
-
-
-
-
 
                     <!-- orderWidget() WILL ORDER A WIDGET USING THE WidgetController (see: ./javascripts/controllers.js) -->
                     <button type="submit" class="btn btn-primary btn-lg" ng-disabled="widgetForm.$invalid">Place Order</button>
@@ -98,6 +101,9 @@
 
             </div>
         </div>
+
+
+
 
         <!-- FOOTER VIEW -->
 
