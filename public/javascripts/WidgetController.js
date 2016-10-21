@@ -7,9 +7,11 @@ app.controller('WidgetController', function($scope, $http) {
     $scope.finalWidget = {};
 
 
-    // DEFINE THE MINIMUM DATE ALLOWED
+    // DEFINE THE MINIMUM AND MAXIMUM DATES ALLOWED
     $scope.minDate = new Date();
     $scope.minDate.setDate($scope.minDate.getDate()+7);
+
+
 
     // DEFINE SELECTABLE OPTIONS
     $scope.data = {
@@ -35,8 +37,7 @@ app.controller('WidgetController', function($scope, $http) {
                 $scope.finalWidget = data;
 				console.log(data);
 
-				$scope.finalWidget = {}; // clear the form so our user is ready to enter another
-
+                $scope.finalWidget = {}; // clear the form so our user is ready to enter another
                 $scope.output = angular.fromJson(data);
 
 			})
@@ -49,6 +50,11 @@ app.controller('WidgetController', function($scope, $http) {
             console.log("invalid fields!");
         }
 
+    };
+
+    $scope.newOrder = function(){
+        $scope.output = null;
+        console.log("Clearing out old data");
     };
 
 });
