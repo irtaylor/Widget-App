@@ -4,7 +4,8 @@ var app = angular.module('widgetApp');
 
 app.controller('WidgetController', function($scope, $http) {
 
-    $scope.finalWidget = {}
+    $scope.finalWidget = {};
+
 
     // DEFINE THE MINIMUM DATE ALLOWED
     $scope.minDate = new Date();
@@ -35,6 +36,8 @@ app.controller('WidgetController', function($scope, $http) {
 				console.log(data);
 
 				$scope.finalWidget = {}; // clear the form so our user is ready to enter another
+
+                $scope.output = angular.fromJson(data);
 
 			})
 			.error(function(data) {

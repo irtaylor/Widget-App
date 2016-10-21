@@ -1,7 +1,7 @@
 <!-- FORM TO ORDER WIDGETs -->
 
 <div id="widget-form" class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-8">
 
         <form name="widgetForm" ng-submit="orderWidget(widgetForm.$valid)" novalidate>
 
@@ -9,7 +9,7 @@
             <div class="form-group row">
                 <label for="widgetModel" class="col-xs-3 col-form-label">Widget Model</label>
 
-                <div class="col-xs-9">
+                <div class="col-xs-5">
                     <select class="form-control" name="widgetModels" id="widgetModels" ng-model="finalWidget.model" required="Widget">
                         <option value="" disabled selected>Select A Model</option>
                         <option ng-repeat="option in data.widgetModels" value="{{option.model}}">{{option.model}}</option>
@@ -22,7 +22,7 @@
             <!-- WIDGET COLOR SELECT -->
             <div class="form-group row">
                 <label for="widgetColors" class="col-xs-3 col-form-label">Widget Color</label>
-                <div class="col-xs-9">
+                <div class="col-xs-5">
                     <select class="form-control" name="widgetColors" id="widgetColors" ng-model="finalWidget.color" required>
                         <option value="" disabled selected>Select A Color</option>
                         <option ng-repeat="option in data.widgetColors" value="{{option.color}}">{{option.color}}</option>
@@ -34,9 +34,9 @@
             <!-- WIDGET DATE -->
             <div class="form-group row">
                 <label for="widgetDate" class="col-xs-3 col-form-label">Desired Receipt Date</label>
-                <div class="col-xs-9">
-                    <input class="form-control" type="date" name="widgetDate" id="widgetDate" ng-model="finalWidget.receipt_date"
-                    placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyy-MM-dd'}}" required/>
+                <div class="col-xs-5">
+                    <input class="form-control" type="date" name="widgetDate" id="widgetDate" ng-model="finalWidget.receipt_date" min="{{minDate | date:'yyyy-MM-dd'}}" max="9999-12-31" required/>
+                    <p ng-show="widgetForm.widgetDate.$error.max" class="help-block" style="color:red">I can't plan that far ahead.</p>
                     <p ng-show="widgetForm.widgetDate.$error.min" class="help-block" style="color:red">Please select a date at least one week from today.</p>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <!-- WIDGET QUANTITY -->
             <div class="form-group row">
                 <label for="widgetQuantity" class="col-xs-3 col-form-label">Quantity Desired</label>
-                <div class="col-xs-9">
+                <div class="col-xs-5">
                     <input class="form-control" name="widgetQuantity" id="widgetQuantity" ng-model="finalWidget.quantity"
                     placeholder="Enter A Number" min="1" ng-pattern="/^0*[1-9]+\d*$/" required/> <!-- regex: ignore leading zeros. E.g. "000010" will be interpreted as "10"-->
                     <p ng-show="widgetForm.widgetQuantity.$error.pattern" class="help-block" style="color:red">Please order at least one widget. No partial widgets, please -- whole numbers only.</p>
@@ -56,5 +56,20 @@
             <button type="submit" class="btn btn-primary btn-lg" ng-disabled="widgetForm.$invalid">Place Order</button>
         </form>
 
+    </div>
+
+    <div class="col-sm-4" ng-show="output">
+        <div class="row">
+            <label class="col-form-label">Your Order Details:</label>
+        </div>
+        <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item">Order ID: <div class="pull-right">{{output.order_id}}</div></li>
+                <li class="list-group-item">Model: <div class="pull-right">{{output.model}}</div></li>
+                <li class="list-group-item">Color: <div class="pull-right">{{output.color}}</div></li>
+                <li class="list-group-item">Receipt Date: <div class="pull-right">{{output.receipt_date | date:"MM/dd/yyyy"}}</div></li>
+                <li class="list-group-item">Quantity: <div class="pull-right">{{output.quantity}}</div></li>
+            </ul>
+        </div>
     </div>
 </div>
