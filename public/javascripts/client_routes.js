@@ -1,5 +1,7 @@
 'use strict';
 
+// SET UP ALL THE ROUTING NECESSARY FOR PROPERLY DISPLAYING VIEWS 
+
 var app = angular.module('widgetApp', ['ngRoute']);
 
 app.config(['$routeProvider',

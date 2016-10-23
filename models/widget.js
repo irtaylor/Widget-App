@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // DEFINE THE WIDGET SCHEMA
+// ... this will be used in the widgetRouter to reference properties of a widget object
 var widgetSchema = new Schema({
     model:{
         type: String,
@@ -27,5 +28,6 @@ var widgetSchema = new Schema({
     }
 });
 
-var Widgets = mongoose.model('Widget', widgetSchema);
+// MAKE THE WIDGET SCHEMA AVAILABLE FOR THE ROUTER TO USE
+var Widgets = mongoose.model('Widget', widgetSchema); // mongoose pluralizes the first name parameter. I.e. 'Widget' --> 'Widgets'
 module.exports = Widgets;
