@@ -16,4 +16,4 @@ mongodb/
 *.pid
 *.gz
 
-# file names
+# individual file namesfile names
