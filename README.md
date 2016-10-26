@@ -16,8 +16,8 @@ This project is also hosted online at https://irtaylor-widgets.herokuapp.com/#/.
 2. Clone the repository: `git clone https://github.com/irtaylor/Widget-App.git`.
 3. Install the application: `npm install` and `bower install`.
 4. Create a local directory for the database `./install_widgets.sh`. This will create the directory and run the Mongo Daemon in the background, facilitating database connections.   
-5. Start the application: `npm start`
-6. View in browser at `http://localhost:3000`
+5. Start the application: `npm start`.
+6. View in browser at `http://localhost:3000`.
 7. If running the application locally, the local database can be accessed and queried through the MongoDB shell using the `mongo` command.
 
 ## Citations
