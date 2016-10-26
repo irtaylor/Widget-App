@@ -1,7 +1,6 @@
 # Widget-App: A MEAN Stack Web Application for Ordering Widgets
 
 Ian Taylor, October 2016.
-Application Submission for University of Pennsylvania, Software Developer Position
 
 This project is also hosted online at https://irtaylor-widgets.herokuapp.com.
 
