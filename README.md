@@ -3,7 +3,7 @@
 Ian Taylor, October 2016.
 Application Submission for University of Pennsylvania, Software Developer Position
 
-This project is also hosted online at https://irtaylor-widgets.herokuapp.com/#/.
+This project is also hosted online at https://irtaylor-widgets.herokuapp.com.
 
 ## Requirements
 - [Node and NPM](http://nodejs.org)
