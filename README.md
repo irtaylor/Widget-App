@@ -21,5 +21,5 @@ This project is also hosted online at https://irtaylor-widgets.herokuapp.com.
 
 ## Citations
 
-- This application was created using the [Express Application Generator](https://expressjs.com/en/starter/generator.html).
+- This application was scaffolded using the [Express Application Generator](https://expressjs.com/en/starter/generator.html).
 - The general structure and development approach of this application was inspired by [Coursera's Six-Course Specialization on Full Stack Web Development](https://www.coursera.org/specializations/full-stack).
